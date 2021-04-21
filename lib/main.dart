@@ -6,7 +6,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text('Sourabh'),
-    );
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text('Flutter Basics'),
+            ),
+            body: Text('This is body.')));
   }
 }
