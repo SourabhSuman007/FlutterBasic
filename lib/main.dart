@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './question.dart';
+import './answer.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,8 +15,10 @@ class MyApp extends StatefulWidget {
 
 //void ts() => print("qwerty");
 class _MyAppState extends State<MyApp> {
+
   var _qIndex = 0;
-  void ansQ() {
+
+  void _ansQ() {
     setState(() {
       _qIndex = _qIndex + 1;
     });
@@ -39,24 +42,9 @@ class _MyAppState extends State<MyApp> {
           children: [
             //list
             Question(questions[_qIndex]),
-            FloatingActionButton(
-              child: Text('Btn1'),
-              onPressed: ansQ,
-            ),
-            FloatingActionButton(
-              child: Text('Btn2'),
-              onPressed: () {
-                //dsd
-                print('Btn2 pressed.');
-              },
-            ),
-            // ignore: deprecated_member_use
-            RaisedButton(
-              child: Text('Btn3'),
-              onPressed: () => {
-                print('Btn3 pressed.'),
-              },
-            ),
+            Answer(_ansQ),//callbacks
+            Answer(_ansQ),
+            Answer(_ansQ),
           ],
         ),
       ),
