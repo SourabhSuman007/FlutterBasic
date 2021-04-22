@@ -8,14 +8,12 @@ void main() => runApp(MyApp());
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _MyAppState();
   }
 }
 
 //void ts() => print("qwerty");
 class _MyAppState extends State<MyApp> {
-
   var _qIndex = 0;
 
   void _ansQ() {
@@ -42,7 +40,7 @@ class _MyAppState extends State<MyApp> {
           children: [
             //list
             Question(questions[_qIndex]),
-            Answer(_ansQ),//callbacks
+            Answer(_ansQ), //callbacks
             Answer(_ansQ),
             Answer(_ansQ),
           ],
