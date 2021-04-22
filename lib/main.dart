@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
 
+import './question.dart';
+
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  //void ts() => print("qwerty");
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _MyAppState();
+  }
+}
 
-  var qIndex = 0;
+//void ts() => print("qwerty");
+class _MyAppState extends State<MyApp> {
+  var _qIndex = 0;
   void ansQ() {
-    qIndex = qIndex + 1;
-    print(qIndex);
+    setState(() {
+      _qIndex = _qIndex + 1;
+    });
+    print(_qIndex);
   }
 
   @override
@@ -27,7 +38,7 @@ class MyApp extends StatelessWidget {
           //invisible widgets
           children: [
             //list
-            Text(questions[qIndex]),
+            Question(questions[_qIndex]),
             FloatingActionButton(
               child: Text('Btn1'),
               onPressed: ansQ,
