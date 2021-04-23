@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:easy_gradient_text/easy_gradient_text.dart';
 
 import './quiz.dart';
+import './results.dart';
 
 void main() => runApp(MyApp());
 
@@ -67,19 +67,7 @@ class _MyAppState extends State<MyApp> {
                 questions: _questions,
                 qIndex: _qIndex,
               )
-            : Center(
-                child: Container(
-                  child: GradientText(
-                    text: 'Quiz Over!!',
-                    colors: [Colors.red[600], Colors.orange[400]],
-                    style: TextStyle(
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    //textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
+            : Results(),
       ),
     );
   }
