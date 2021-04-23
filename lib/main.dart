@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_gradient_text/easy_gradient_text.dart';
 
-import './question.dart';
-import './answer.dart';
+import './quiz.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +14,7 @@ class MyApp extends StatefulWidget {
 
 //void ts() => print("qwerty");
 class _MyAppState extends State<MyApp> {
-  var questions = [
+  final _questions = const [
     {
       'question': 'Do you play CSGO?',
       'answer': ['Yes', 'No'],
@@ -62,21 +61,11 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('Flutter Basics'),
         ),
-        body: (_qIndex < questions.length)
-            ? Column(
-                //invisible widgets
-                children: [
-                  //list
-                  Question(questions[_qIndex]['question']),
-                  //iterating over answer list in the map.
-                  ...(questions[_qIndex]['answer'] as List<String>)
-                      .map((answers) {
-                    return Answer(_ansQ, answers);
-                  })
-                  // for (var answers in questions[_qIndex]['answer']){
-                  //   print ('$answers');
-                  // }
-                ],
+        body: (_qIndex < _questions.length)
+            ? Quiz(
+                ansQ: _ansQ,
+                questions: _questions,
+                qIndex: _qIndex,
               )
             : Center(
                 child: Container(
