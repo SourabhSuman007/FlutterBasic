@@ -7,7 +7,9 @@ class Quiz extends StatelessWidget {
   final Function ansQ;
   final List<Map<String, Object>> questions;
   final int qIndex;
+
   Quiz({@required this.ansQ, @required this.questions, @required this.qIndex});
+
   @override
   Widget build(BuildContext context) {
     return Column(

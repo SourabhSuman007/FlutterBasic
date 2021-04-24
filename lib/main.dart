@@ -12,7 +12,6 @@ class MyApp extends StatefulWidget {
   }
 }
 
-//void ts() => print("qwerty");
 class _MyAppState extends State<MyApp> {
   final _questions = const [
     {
@@ -85,18 +84,27 @@ class _MyAppState extends State<MyApp> {
 
   var _qIndex = 0;
   var _totalS = 0;
+
   void _ansQ(int _score) {
     _totalS += _score;
     setState(() {
       _qIndex = _qIndex + 1;
     });
     print(_qIndex);
+    print(_totalS);
+  }
+
+  void _reset() {
+    setState(() {
+      _qIndex = 0;
+      _totalS = 0;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner:false,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text('Flutter Basics'),
@@ -107,7 +115,11 @@ class _MyAppState extends State<MyApp> {
                 questions: _questions,
                 qIndex: _qIndex,
               )
-            : Results(scores: _totalS, qNum: _questions.length),
+            : Results(
+                scores: _totalS,
+                qNum: _questions.length,
+                restart: _reset,
+              ),
       ),
     );
   }
